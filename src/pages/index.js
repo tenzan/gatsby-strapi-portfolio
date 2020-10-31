@@ -7,13 +7,45 @@ import Jobs from "../components/Jobs"
 import Projects from "../components/Projects"
 import Blogs from "../components/Blogs"
 
-export default () => {
+export default ({ data }) => {
+  const {
+    allStrapiProjects: { nodes: projects },
+  } = data
   return (
     <Layout>
       <Hero></Hero>
       <Services></Services>
       <Jobs></Jobs>
+      <Projects
+        projects={projects}
+        title="featured projects"
+        showLink
+      ></Projects>
     </Layout>
   )
 }
-// ...GatsbyImageSharpFluid
+
+export const query = graphql`
+  {
+    allStrapiProjects(filter: { featured: { eq: true } }) {
+      nodes {
+        github
+        id
+        description
+        title
+        url
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        stack {
+          id
+          title
+        }
+      }
+    }
+  }
+`
