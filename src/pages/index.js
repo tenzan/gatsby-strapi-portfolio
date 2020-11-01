@@ -22,7 +22,7 @@ export default ({ data }) => {
         title="featured projects"
         showLink
       ></Projects>
-      <Blogs blogs={blogs} title="blog" showLink></Blogs>
+      <Blogs blogs={blogs} title="latest articles" showLink></Blogs>
     </Layout>
   )
 }
