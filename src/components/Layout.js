@@ -1,18 +1,23 @@
-import React from "react"
+import React from "react";
 // import "../css/main.css"
-import Navbar from "./Navbar"
-import Sidebar from "./Sidebar"
-import Footer from "./Footer"
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
-      <Navbar></Navbar>
-      <Sidebar></Sidebar>
+      <Navbar toggleSidebar={toggleSidebar}></Navbar>
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}></Sidebar>
       {children}
       <Footer></Footer>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
