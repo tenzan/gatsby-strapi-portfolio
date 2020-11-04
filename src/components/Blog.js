@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Image from "gatsby-image"
-import { Link } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import Image from "gatsby-image";
+import { Link } from "gatsby";
 
 const Blog = ({ id, title, image, date, category, slug, desc }) => {
   return (
@@ -22,8 +22,8 @@ const Blog = ({ id, title, image, date, category, slug, desc }) => {
         </div>
       </article>
     </Link>
-  )
-}
+  );
+};
 
 Blog.propTypes = {
   id: PropTypes.string.isRequired,
@@ -33,6 +33,6 @@ Blog.propTypes = {
   slug: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   stack: PropTypes.arrayOf(PropTypes.object).isRequired,
-}
+};
 
-export default Blog
+export default Blog;
