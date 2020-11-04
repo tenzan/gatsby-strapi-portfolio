@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Image from "gatsby-image"
 import { Link } from "gatsby"
+
 const Blog = ({ id, title, image, date, category, slug, desc }) => {
   return (
     <Link to={`/blogs/${slug}`} key={id}>
@@ -19,6 +20,14 @@ const Blog = ({ id, title, image, date, category, slug, desc }) => {
   )
 }
 
-Blog.propTypes = {}
+Blog.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  stack: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
 
 export default Blog
