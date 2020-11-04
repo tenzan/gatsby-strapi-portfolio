@@ -1,19 +1,21 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
-import Hero from "../components/Hero"
-import Services from "../components/Services"
-import Jobs from "../components/Jobs"
-import Projects from "../components/Projects"
-import Blogs from "../components/Blogs"
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Hero from "../components/Hero";
+import Services from "../components/Services";
+import Jobs from "../components/Jobs";
+import Projects from "../components/Projects";
+import Blogs from "../components/Blogs";
+import SEO from "../components/SEO";
 
 export default ({ data }) => {
   const {
     allStrapiProjects: { nodes: projects },
     allStrapiBlogs: { nodes: blogs },
-  } = data
+  } = data;
   return (
     <Layout>
+      <SEO title="home" description="this is our home page"></SEO>
       <Hero></Hero>
       <Services></Services>
       <Jobs></Jobs>
@@ -24,8 +26,8 @@ export default ({ data }) => {
       ></Projects>
       <Blogs blogs={blogs} title="latest articles" showLink></Blogs>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   {
@@ -68,4 +70,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
